@@ -1,0 +1,20 @@
+<!--
+  Generated template for the ListaHabitacionesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista Habitaciones</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let habitacion of habitaciones">{{habitacion.noHabitacion}} - $ {{habitacion.precio}}</button>
+  </ion-list>
+</ion-content>
