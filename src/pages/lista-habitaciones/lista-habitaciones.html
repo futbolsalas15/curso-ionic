@@ -15,6 +15,6 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let habitacion of habitaciones">{{habitacion.noHabitacion}} - $ {{habitacion.precio}}</button>
+    <button ion-item *ngFor="let habitacion of habitaciones" (click)="verHabitacion(habitacion)">{{habitacion.noHabitacion}} - $ {{habitacion.precio}}</button>
   </ion-list>
 </ion-content>

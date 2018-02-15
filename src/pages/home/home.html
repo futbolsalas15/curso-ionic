@@ -1,16 +1,19 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Reserva de Habitacion
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the
-    <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-  <a href="#" (click)="irAListaHabitaciones()">Lista Habitaciones</a>
+  <button ion-button icon-left (click)="irAListaHabitaciones()">
+    <ion-icon name="home"></ion-icon>
+    Lista Habitaciones
+  </button>
 </ion-content>

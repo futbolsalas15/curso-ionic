@@ -19,11 +19,11 @@ export class HabitacionesProvider {
 
   getListaHabitaciones(): Observable<Habitacion[]> {
     return Observable.of([
-      new Habitacion(101, "Economica", 100000, ""),
-      new Habitacion(201, "Economica", 100000, ""),
-      new Habitacion(301, "Economica", 120000, ""),
-      new Habitacion(401, "Suite", 450000, ""),
-      new Habitacion(501, "Suite", 500000, ""),
+      new Habitacion(101, "Economica", 100000, "assets/imgs/habitacion.jpg"),
+      new Habitacion(201, "Economica", 100000, "assets/imgs/habitacion.jpg"),
+      new Habitacion(301, "Economica", 120000, "assets/imgs/habitacion.jpg"),
+      new Habitacion(401, "Suite", 450000, "assets/imgs/habitacion.jpg"),
+      new Habitacion(501, "Suite", 500000, "assets/imgs/habitacion.jpg"),
     ]);
   }
 

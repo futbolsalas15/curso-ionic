@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Habitacion } from '../../model/habitacion';
 import { HabitacionesProvider } from '../../providers/habitaciones/habitaciones';
+import { DetalleHabitacionPage } from '../detalle-habitacion/detalle-habitacion';
 
 /**
  * Generated class for the ListaHabitacionesPage page.
@@ -26,6 +27,12 @@ export class ListaHabitacionesPage {
     this.habitacionesProv.getListaHabitaciones().subscribe(d => {
       console.log(d);
       this.habitaciones = d
+    });
+  }
+
+  verHabitacion(habitacion: Habitacion) {
+    this.navCtrl.push(DetalleHabitacionPage, {
+      "habitacion": habitacion
     });
   }
 

@@ -12,6 +12,10 @@ export class HomePage {
 
   }
 
+  ionViewDidLoad() {
+
+  }
+
   irAListaHabitaciones() {
     this.navCtrl.push(ListaHabitacionesPage);
   }

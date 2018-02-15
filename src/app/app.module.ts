@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { ListaHabitacionesPageModule } from '../pages/lista-habitaciones/lista-habitaciones.module';
 import { HabitacionesProvider } from '../providers/habitaciones/habitaciones';
 import { HttpClientModule } from '@angular/common/http';
+import { DetalleHabitacionPageModule } from '../pages/detalle-habitacion/detalle-habitacion.module';
+import { ReservarHabitacionPageModule } from '../pages/reservar-habitacion/reservar-habitacion.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-    ListaHabitacionesPageModule
+    ListaHabitacionesPageModule,
+    DetalleHabitacionPageModule,
+    ReservarHabitacionPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
