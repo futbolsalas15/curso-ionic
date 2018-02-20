@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetalleHabitacionPageModule } from '../pages/detalle-habitacion/detalle-habitacion.module';
 import { ReservarHabitacionPageModule } from '../pages/reservar-habitacion/reservar-habitacion.module';
 import { FormsModule } from '@angular/forms';
+import { LoginPageModule } from '../pages/login/login.module';
+import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(MyApp),
     ListaHabitacionesPageModule,
     DetalleHabitacionPageModule,
-    ReservarHabitacionPageModule
+    ReservarHabitacionPageModule,
+    LoginPageModule,
+    HomeTabsPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
