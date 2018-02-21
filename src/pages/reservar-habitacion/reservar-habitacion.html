@@ -17,26 +17,38 @@
 
   <h4>Reserva habitacion {{habitacion.noHabitacion}}</h4>
 
-  <form>
+  <form #f="ngForm" [formGroup]="formReserva" (ngSubmit)="hacerReserva()">
     <ion-list>
       <ion-item>
         <ion-label fixed>Nombres</ion-label>
-        <ion-input type="text" [value]="reserva.nombres" (keyup)="reserva.nombres=$event.value"></ion-input>
+        <ion-input type="text" [(ngModel)]="reserva.nombres" name="nombres" formControlName="nombres"></ion-input>
       </ion-item>
+      <div *ngIf="!formReserva.controls.nombres.valid" class="alert warning">
+        El nombre es obligatorio
+      </div>
       <ion-item>
         <ion-label fixed>Apellidos</ion-label>
-        <ion-input type="text" [value]="reserva.apellidos" (keyup)="reserva.apellidos=$event.value"></ion-input>
+        <ion-input type="text" [(ngModel)]="reserva.apellidos" name="apellidos" formControlName="apellidos"></ion-input>
       </ion-item>
+      <div *ngIf="!formReserva.controls.apellidos.valid" class="alert warning">
+        El apellido es obligatorio
+      </div>
       <ion-item>
         <ion-label fixed>Documento</ion-label>
-        <ion-input type="text" [value]="reserva.documento" (keyup)="reserva.documento=$event.value"></ion-input>
+        <ion-input type="text" [(ngModel)]="reserva.documento" name="documento" formControlName="documento" required></ion-input>
       </ion-item>
+      <div *ngIf="!formReserva.controls.documento.valid" class="alert warning">
+        El documento es obligatorio
+      </div>
       <ion-item>
         <ion-label fixed>Telefono</ion-label>
-        <ion-input type="text" [value]="reserva.telefono" (keyup)="reserva.telefono=$event.value"></ion-input>
+        <ion-input type="text" [(ngModel)]="reserva.telefono" name="telefono" required formControlName="telefono"></ion-input>
       </ion-item>
+      <div *ngIf="!formReserva.controls.telefono.valid" class="alert warning">
+        El telefono es obligatorio
+      </div>
       <ion-item>
-        <button ion-button (click)="hacerReserva()">Reservar</button>
+        <button ion-button type="submit" [disabled]="!f.valid">Reservar</button>
       </ion-item>
     </ion-list>
   </form>

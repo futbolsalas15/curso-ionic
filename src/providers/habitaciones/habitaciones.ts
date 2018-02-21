@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Habitacion } from '../../model/habitacion';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the HabitacionesProvider provider.
@@ -18,13 +19,8 @@ export class HabitacionesProvider {
   }
 
   getListaHabitaciones(): Observable<Habitacion[]> {
-    return Observable.of([
-      new Habitacion(101, "Economica", 100000, "assets/imgs/habitacion.jpg"),
-      new Habitacion(201, "Economica", 100000, "assets/imgs/habitacion.jpg"),
-      new Habitacion(301, "Economica", 120000, "assets/imgs/habitacion.jpg"),
-      new Habitacion(401, "Suite", 450000, "assets/imgs/habitacion.jpg"),
-      new Habitacion(501, "Suite", 500000, "assets/imgs/habitacion.jpg"),
-    ]);
+    return this.http.get("http://localhost:81/lista-hab.php")
+      .map((res: Habitacion[]) => res);
   }
 
 }
