@@ -23,28 +23,28 @@
         <ion-label fixed>Nombres</ion-label>
         <ion-input type="text" [(ngModel)]="reserva.nombres" name="nombres" formControlName="nombres"></ion-input>
       </ion-item>
-      <div *ngIf="!formReserva.controls.nombres.valid" class="alert warning">
+      <div *ngIf="!formReserva.controls.nombres.valid && formReserva.controls.nombres.touched" class="alert warning">
         El nombre es obligatorio
       </div>
       <ion-item>
         <ion-label fixed>Apellidos</ion-label>
         <ion-input type="text" [(ngModel)]="reserva.apellidos" name="apellidos" formControlName="apellidos"></ion-input>
       </ion-item>
-      <div *ngIf="!formReserva.controls.apellidos.valid" class="alert warning">
+      <div *ngIf="!formReserva.controls.apellidos.valid  && formReserva.controls.apellidos.touched" class="alert warning">
         El apellido es obligatorio
       </div>
       <ion-item>
         <ion-label fixed>Documento</ion-label>
         <ion-input type="text" [(ngModel)]="reserva.documento" name="documento" formControlName="documento" required></ion-input>
       </ion-item>
-      <div *ngIf="!formReserva.controls.documento.valid" class="alert warning">
+      <div *ngIf="!formReserva.controls.documento.valid  && formReserva.controls.documento.touched" class="alert warning">
         El documento es obligatorio
       </div>
       <ion-item>
         <ion-label fixed>Telefono</ion-label>
         <ion-input type="text" [(ngModel)]="reserva.telefono" name="telefono" required formControlName="telefono"></ion-input>
       </ion-item>
-      <div *ngIf="!formReserva.controls.telefono.valid" class="alert warning">
+      <div *ngIf="!formReserva.controls.telefono.valid && formReserva.controls.telefono.touched" class="alert warning">
         El telefono es obligatorio
       </div>
       <ion-item>
