@@ -3,10 +3,13 @@
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
 
-echo json_encode([
-    ["noHabitacion" => 101, "tipoSuite" => "Economica", "precio" => 100000, "foto" => "assets/imgs/habitacion.jpg"],
-    ["noHabitacion" => 201, "tipoSuite" => "Economica", "precio" => 100000, "foto" => "assets/imgs/habitacion.jpg"],
-    ["noHabitacion" => 301, "tipoSuite" => "Economica", "precio" => 120000, "foto" => "assets/imgs/habitacion.jpg"],
-    ["noHabitacion" => 401, "tipoSuite" => "Suite", "precio" => 450000, "foto" => "assets/imgs/habitacion.jpg"],
-    ["noHabitacion" => 501, "tipoSuite" => "Suite", "precio" => 500000, "foto" => "assets/imgs/habitacion.jpg"],
-]);
+$database = new SQLite3('hotel.sqlite');
+$listaHab = $database->query("SELECT a.noHabitacion, a.tipoSuite, a.precio, a.foto, CASE WHEN b.nombres IS NOT NULL THEN 'true' ELSE 'false' END AS isReservado FROM habitaciones a LEFT JOIN reservas b ON (a.noHabitacion = b.noHabitacion) ORDER BY a.noHabitacion");
+$listaHabArray = [];
+while( ($row = $listaHab->fetchArray(SQLITE3_ASSOC)) !== FALSE ){
+    $listaHabArray[] = $row;
+}
+$listaHab->finalize();
+$database->close();
+
+echo json_encode($listaHabArray);
