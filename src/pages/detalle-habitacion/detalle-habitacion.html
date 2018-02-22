@@ -15,13 +15,15 @@
 
 <ion-content padding>
   <ion-card>
-    <img [src]="habitacion.foto" />
-    <div class="card-title">Habitacion no {{habitacion.noHabitacion}}</div>
-    <div class="card-subtitle">{{habitacion.tipoSuite}}</div>
+    <img [src]="'assets/imgs/'+habitacion.foto" />
+    <ion-card-content>
+      <div class="card-title">Habitacion no {{habitacion.noHabitacion}}</div>
+      <div class="card-subtitle">{{habitacion.tipoSuite}}</div>
+    </ion-card-content>
     <ion-row>
-      <ion-col>
+      <ion-col col-5 offset-7 class="pull-right">
         <button ion-button icon-left clear small *ngIf="habitacion.reserva == null" (click)="reservar()">
-          <ion-icon name="thumbs-up"></ion-icon>
+          <ion-icon name="card"></ion-icon>
           <div>Reservar</div>
         </button>
       </ion-col>
