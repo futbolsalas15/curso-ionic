@@ -11,14 +11,13 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button icon-left (click)="irAListaHabitaciones()">
-    <ion-icon name="home"></ion-icon>
-    Lista Habitaciones
-  </button>
-</ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Ubicacion</ion-title>
-  </ion-toolbar>
-</ion-footer>
+  <ion-list>
+    <ion-item (click)="irAListaHabitaciones()">
+      <ion-thumbnail item-start>
+        <img src="/assets/imgs/icono_lista_hab.jpg" />
+      </ion-thumbnail>
+      <h2>Lista Habitaciones</h2>
+    </ion-item>
+  </ion-list>
+</ion-content>

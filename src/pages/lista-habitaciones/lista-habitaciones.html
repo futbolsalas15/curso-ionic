@@ -18,6 +18,16 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let habitacion of habitaciones" (click)="verHabitacion(habitacion)">{{habitacion.noHabitacion}} - $ {{habitacion.precio}}</button>
+    <ion-item *ngFor="let habitacion of habitaciones" (click)="verHabitacion(habitacion)">
+      <ion-row>
+        <ion-col col-8>
+          <h2>Habitación {{habitacion.noHabitacion}}</h2>
+          <p>
+            <strong>Tipo: </strong>{{habitacion.tipoSuite}}
+          </p>
+        </ion-col>
+        <ion-col class="precio" col-4>{{habitacion.precio|currency:COP}}</ion-col>
+      </ion-row>
+    </ion-item>
   </ion-list>
 </ion-content>

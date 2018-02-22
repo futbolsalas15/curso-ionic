@@ -24,6 +24,8 @@ $app-direction: ltr;
 
 $toolbar-background: #00A9E0;
 $font-size-base: 2em; 
+$item-divider-color: blue;
+$item-divider-background: blue;
 
 
 // Named Color Variables
@@ -35,11 +37,12 @@ $font-size-base: 2em;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary:    #00AAE5,
+  secondary:  #fff,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  movistar:   #83B619
 );
 
 
