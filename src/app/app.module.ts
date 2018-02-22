@@ -14,6 +14,8 @@ import { ReservarHabitacionPageModule } from '../pages/reservar-habitacion/reser
 import { FormsModule } from '@angular/forms';
 import { LoginPageModule } from '../pages/login/login.module';
 import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
+import { FavoritosProvider } from '../providers/favoritos/favoritos';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     ListaHabitacionesPageModule,
     DetalleHabitacionPageModule,
     ReservarHabitacionPageModule,
@@ -39,7 +42,8 @@ import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    HabitacionesProvider
+    HabitacionesProvider,
+    FavoritosProvider
   ]
 })
 export class AppModule { }

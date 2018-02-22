@@ -21,7 +21,12 @@
       <div class="card-subtitle">{{habitacion.tipoSuite}}</div>
     </ion-card-content>
     <ion-row>
-      <ion-col col-5 offset-7 class="pull-right">
+      <ion-col col-6 class="pull-right">
+        <button ion-button icon-left clear small (click)="marcarFavorito()">
+          <ion-icon [name]="iconoFavorito"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-6 class="pull-right">
         <button ion-button icon-left clear small *ngIf="habitacion.reserva == null" (click)="reservar()">
           <ion-icon name="card"></ion-icon>
           <div>Reservar</div>

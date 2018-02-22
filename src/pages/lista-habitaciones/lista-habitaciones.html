@@ -8,6 +8,9 @@
   <ion-navbar>
     <ion-title>Lista Habitaciones</ion-title>
     <ion-buttons end>
+      <button ion-button icon-only (click)="filtrar()">
+        <ion-icon name="options"></ion-icon>
+      </button>
       <button ion-button icon-only (click)="abrirFiltroHabitacion()">
         <ion-icon name="search"></ion-icon>
       </button>
@@ -17,6 +20,18 @@
 
 
 <ion-content padding>
+  <ion-list [hidden]="!mostrarFiltros">
+    <ion-list-header>
+      Filtros
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Cocina</ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <button ion-button full (click)="filtrarAction()">Filtrar</button>
+    </ion-item>
+  </ion-list>
   <ion-list>
     <ion-item *ngFor="let habitacion of habitaciones" (click)="verHabitacion(habitacion)">
       <ion-row>

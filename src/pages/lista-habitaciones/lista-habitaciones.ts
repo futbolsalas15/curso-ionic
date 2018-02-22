@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { Habitacion } from '../../model/habitacion';
 import { HabitacionesProvider } from '../../providers/habitaciones/habitaciones';
 import { DetalleHabitacionPage } from '../detalle-habitacion/detalle-habitacion';
@@ -21,8 +21,10 @@ export class ListaHabitacionesPage {
   habitaciones: Habitacion[] = [];
   habitacionesSinFiltrar: Habitacion[] = [];
   filtroTipo: string;
+  mostrarFiltros: boolean = false;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public habitacionesProv: HabitacionesProvider, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public habitacionesProv: HabitacionesProvider, public alertCtrl: AlertController,
+    public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -68,4 +70,19 @@ export class ListaHabitacionesPage {
     ventanaAbrirFiltro.present();
   }
 
+  filtrar() {
+    this.mostrarFiltros = !this.mostrarFiltros;
+  }
+
+  filtrarAction() {
+    let toastMsg = this.toastCtrl.create({
+      message: "Se aplica filtro por cocina",
+      duration: 3000,
+      position: 'top'
+    });
+    toastMsg.present();
+    this.filtrar();
+  }
+
 }
+
