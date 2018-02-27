@@ -19,6 +19,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Vibration } from '@ionic-native/vibration';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UbicarHotelPageModule } from '../pages/ubicar-hotel/ubicar-hotel.module';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { UbicarHotelPageModule } from '../pages/ubicar-hotel/ubicar-hotel.module
     HabitacionesProvider,
     FavoritosProvider,
     Vibration,
-    Geolocation
+    Geolocation,
+    GoogleMaps
   ]
 })
 export class AppModule { }
