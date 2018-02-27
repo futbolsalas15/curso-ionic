@@ -17,6 +17,8 @@ import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
 import { FavoritosProvider } from '../providers/favoritos/favoritos';
 import { IonicStorageModule } from '@ionic/storage';
 import { Vibration } from '@ionic-native/vibration';
+import { Geolocation } from '@ionic-native/geolocation';
+import { UbicarHotelPageModule } from '../pages/ubicar-hotel/ubicar-hotel.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { Vibration } from '@ionic-native/vibration';
     DetalleHabitacionPageModule,
     ReservarHabitacionPageModule,
     LoginPageModule,
-    HomeTabsPageModule
+    HomeTabsPageModule,
+    UbicarHotelPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +48,8 @@ import { Vibration } from '@ionic-native/vibration';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     HabitacionesProvider,
     FavoritosProvider,
-    Vibration
+    Vibration,
+    Geolocation
   ]
 })
 export class AppModule { }
