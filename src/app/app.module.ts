@@ -16,6 +16,7 @@ import { LoginPageModule } from '../pages/login/login.module';
 import { HomeTabsPageModule } from '../pages/home-tabs/home-tabs.module';
 import { FavoritosProvider } from '../providers/favoritos/favoritos';
 import { IonicStorageModule } from '@ionic/storage';
+import { Vibration } from '@ionic-native/vibration';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     HabitacionesProvider,
-    FavoritosProvider
+    FavoritosProvider,
+    Vibration
   ]
 })
 export class AppModule { }

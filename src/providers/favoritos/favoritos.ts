@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Habitacion } from '../../model/habitacion';
+import { Vibration } from '@ionic-native/vibration';
 
 /*
   Generated class for the FavoritosProvider provider.
@@ -12,7 +13,7 @@ import { Habitacion } from '../../model/habitacion';
 @Injectable()
 export class FavoritosProvider {
 
-  constructor(public http: HttpClient, public storage: Storage) {
+  constructor(public http: HttpClient, public storage: Storage, private vibrationPlugin: Vibration) {
     console.log('Hello FavoritosProvider Provider');
   }
 
@@ -23,6 +24,7 @@ export class FavoritosProvider {
           pref = [];
         }
         pref.push(hab);
+        this.vibrationPlugin.vibrate(1000);
         return this.storage.set("favoritos", pref);
       })
       .catch(e => console.log(e));

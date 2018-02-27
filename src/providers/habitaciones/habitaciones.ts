@@ -19,7 +19,7 @@ export class HabitacionesProvider {
   }
 
   getListaHabitaciones(): Observable<Habitacion[]> {
-    return this.http.get("http://localhost:81/lista-hab.php")
+    return this.http.get("http://10.203.226.135:81/lista-hab.php")
       .map((res: Habitacion[]) => res);
   }
 
