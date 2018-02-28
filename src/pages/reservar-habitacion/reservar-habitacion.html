@@ -48,6 +48,16 @@
         El telefono es obligatorio
       </div>
       <ion-item>
+        <button ion-button (click)="tomarFoto()">Tomar foto</button>
+      </ion-item>
+      <ion-item *ngIf="foto != null">
+        <img [src]="foto">
+      </ion-item>
+      <ion-item>
+        <button ion-button (click)="registrarQr()">Registrar Codigo Descuento</button>
+        <div *ngIf="codigoDto != null">{{codigoDto}}</div>
+      </ion-item>
+      <ion-item>
         <button ion-button type="submit" [disabled]="!f.valid">Reservar</button>
       </ion-item>
     </ion-list>

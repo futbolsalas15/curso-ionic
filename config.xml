@@ -91,5 +91,7 @@
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
     </plugin>
+    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2" />
     <engine name="android" spec="~7.0.0" />
 </widget>

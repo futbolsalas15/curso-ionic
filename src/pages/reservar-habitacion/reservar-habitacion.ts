@@ -4,6 +4,8 @@ import { Habitacion } from '../../model/habitacion';
 import { Reserva } from '../../model/reserva';
 import { DetalleHabitacionPage } from '../detalle-habitacion/detalle-habitacion';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 /**
  * Generated class for the ReservarHabitacionPage page.
@@ -22,8 +24,10 @@ export class ReservarHabitacionPage {
   habitacion: Habitacion;
   reserva: Reserva;
   formReserva: FormGroup;
+  foto: string = null;
+  codigoDto: string = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraProv: Camera, private barCodeProv: BarcodeScanner) {
     this.habitacion = this.navParams.get("habitacion");
     this.reserva = new Reserva("", "", "", "");
     this.formReserva = new FormGroup({
@@ -46,6 +50,27 @@ export class ReservarHabitacionPage {
       });
     }, 2000);
 
+  }
+
+  tomarFoto() {
+    let config: CameraOptions = {
+      quality: 50,
+      destinationType: this.cameraProv.DestinationType.DATA_URL,
+      encodingType: this.cameraProv.EncodingType.JPEG,
+      mediaType: this.cameraProv.MediaType.PICTURE
+    }
+    this.cameraProv.getPicture(config)
+      .then(imageData => {
+        this.foto = 'data:image/jpeg;base64,' + imageData;
+      }, e => console.log(JSON.stringify(e)));
+  }
+
+  registrarQr() {
+    this.barCodeProv.scan().then((barcodeData) => {
+      this.codigoDto = barcodeData.text;
+    }, (err) => {
+      console.log(JSON.stringify(err));
+    });
   }
 
 }

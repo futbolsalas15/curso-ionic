@@ -20,6 +20,9 @@ import { Vibration } from '@ionic-native/vibration';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UbicarHotelPageModule } from '../pages/ubicar-hotel/ubicar-hotel.module';
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { Camera } from '@ionic-native/camera';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     FavoritosProvider,
     Vibration,
     Geolocation,
-    GoogleMaps
+    GoogleMaps,
+    Camera,
+    BarcodeScanner
   ]
 })
 export class AppModule { }
