@@ -6,6 +6,8 @@ import { DetalleHabitacionPage } from '../detalle-habitacion/detalle-habitacion'
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { DeviceMotion } from '@ionic-native/device-motion';
+import { Subscription } from 'rxjs/Subscription';
 
 /**
  * Generated class for the ReservarHabitacionPage page.
@@ -26,8 +28,9 @@ export class ReservarHabitacionPage {
   formReserva: FormGroup;
   foto: string = null;
   codigoDto: string = null;
+  subsVar: Subscription;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraProv: Camera, private barCodeProv: BarcodeScanner) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraProv: Camera, private barCodeProv: BarcodeScanner, private deviceMotion: DeviceMotion) {
     this.habitacion = this.navParams.get("habitacion");
     this.reserva = new Reserva("", "", "", "");
     this.formReserva = new FormGroup({
@@ -36,6 +39,12 @@ export class ReservarHabitacionPage {
       "documento": new FormControl(this.reserva.nombres, [Validators.required, Validators.minLength(6)]),
       "telefono": new FormControl(this.reserva.nombres, [Validators.required, Validators.minLength(7)]),
     });
+
+    let subsVar = this.deviceMotion.watchAcceleration()
+      .subscribe(dataAcc => {
+        console.log(JSON.stringify(dataAcc));
+      }, e => console.log(JSON.stringify(e)));
+
   }
 
   ionViewDidLoad() {

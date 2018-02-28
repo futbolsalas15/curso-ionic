@@ -22,6 +22,7 @@ import { UbicarHotelPageModule } from '../pages/ubicar-hotel/ubicar-hotel.module
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { DeviceMotion } from '@ionic-native/device-motion';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     Geolocation,
     GoogleMaps,
     Camera,
-    BarcodeScanner
+    BarcodeScanner,
+    DeviceMotion
   ]
 })
 export class AppModule { }
